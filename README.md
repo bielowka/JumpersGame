@@ -33,7 +33,7 @@ pierwszy tego dokona − wygrywa. Nie ma możliwości gry remisowej.
   - nastąpi automatycznie, gdy któryś z graczy przemieści wszystkie swoje pionki na odpowiednie pozycje
   - zostanie oznajmione animacją zwycięstwa
 
-<img src="gif2.gif"/>
+<img src="gif2.gif" width="300" height="336"/>
   
   
   
