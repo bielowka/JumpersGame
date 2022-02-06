@@ -15,7 +15,7 @@ pierwszy tego dokona − wygrywa. Nie ma możliwości gry remisowej.
   przeskoczyć 1 pole),
   - wykonaniu całej serii skoków, na przykład:
 
-<img src="skoczki.png"/>
+<img src="gif1.gif"/>
 
 **Dodatkowo:**
   - zmiana kierunku skoków jest możliwa,
