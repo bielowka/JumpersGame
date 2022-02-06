@@ -2,27 +2,19 @@ package jumper.map;
 
 public enum MapDirection {
     NORTH,
-    NORTHEAST,
     EAST,
-    SOUTHEAST,
     SOUTH,
-    SOUTHWEST,
-    WEST,
-    NORTHWEST;
+    WEST;
 
 
     public MapDirection next(){
         switch (this)
         {
-            case NORTH: return NORTHEAST;
-            case NORTHEAST: return EAST;
-            case EAST: return SOUTHEAST;
-            case SOUTHEAST: return SOUTH;
-            case SOUTH: return SOUTHWEST;
-            case SOUTHWEST: return WEST;
-            case WEST: return NORTHWEST;
-            case NORTHWEST: return NORTH;
-            default: return NORTH;
+            case NORTH: return EAST;
+            case EAST: return SOUTH;
+            case SOUTH: return WEST;
+            case WEST: return NORTH;
+            default: throw new IllegalStateException("Unexpected value");
         }
     }
 
@@ -41,18 +33,6 @@ public enum MapDirection {
             case SOUTH:
                 return new Vector2d(0,-1);
 
-            case NORTHWEST:
-                return new Vector2d(-1,1);
-
-            case NORTHEAST:
-                return new Vector2d(1,1);
-
-            case SOUTHWEST:
-                return new Vector2d(-1,-1);
-
-            case SOUTHEAST:
-                return new Vector2d(1,-1);
-
             default:
                 return new Vector2d(0,0);
 
@@ -63,17 +43,12 @@ public enum MapDirection {
     public static MapDirection intToMapDirection(int that){
         switch (that){
             case 0: return NORTH;
-            case 1: return NORTHEAST;
-            case 2: return EAST;
-            case 3: return SOUTHEAST;
-            case 4: return SOUTH;
-            case 5: return SOUTHWEST;
-            case 6: return WEST;
-            case 7: return NORTHWEST;
+            case 1: return EAST;
+            case 2: return SOUTH;
+            case 3: return WEST;
             default:
                 throw new IllegalStateException("Unexpected value: " + that);
         }
     }
-
 
 }
