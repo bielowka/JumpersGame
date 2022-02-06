@@ -36,4 +36,4 @@ pierwszy tego dokona − wygrywa. Nie ma możliwości gry remisowej.
   
   
   
-**Pierwotny pomysł na grę: jakaś dobra dusza AGH**
+**Pierwotny pomysł na grę: jakaś dobra dusza z AGH**
