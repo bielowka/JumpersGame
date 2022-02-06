@@ -137,7 +137,6 @@ public class App extends Application{
                         int finalY = y;
                         box.setOnMouseClicked((event) -> {
                             finalBox.setBackground(new Background(new BackgroundFill(Color.AZURE, CornerRadii.EMPTY, Insets.EMPTY)));
-                            battleField.setInMove(true);
                             battleField.setWhichPawn(new Vector2d(finalX, finalY));
                             battleField.setInMove(true);
                         });
@@ -163,7 +162,6 @@ public class App extends Application{
                         int finalY = y;
                         box.setOnMouseClicked((event) -> {
                             finalBox.setBackground(new Background(new BackgroundFill(Color.AZURE, CornerRadii.EMPTY, Insets.EMPTY)));
-                            battleField.setInMove(true);
                             battleField.setWhichPawn(new Vector2d(finalX, finalY));
                             battleField.setInMove(true);
                         });

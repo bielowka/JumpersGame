@@ -27,6 +27,7 @@ public class BattleField implements Runnable{
     private Vector2d whichPawn;
     private ArrayList<Vector2d> positions = new ArrayList<>();
     private boolean inMove = false;
+    private boolean inMoveType1 = false;
 
     public BattleField(GridPane gridpane, App app){
         this.gridPane = gridpane;
@@ -58,7 +59,7 @@ public class BattleField implements Runnable{
                         } catch (InterruptedException e) {
                             e.printStackTrace();}
                     }
-
+                    this.setInMoveType1(false);
                     positions.clear();
                     Platform.runLater(() -> {
                         observer.inMoveVisual(this,gridPane,1, whichPawn);
@@ -69,6 +70,7 @@ public class BattleField implements Runnable{
                         } catch (InterruptedException e) {
                             e.printStackTrace();}
                     }
+
                     for (Vector2d i : positions){
                         this.pawnsOfP1.remove(whichPawn);
                         this.pawnsOfP1.put(i,new Pawn(true,i));
@@ -100,7 +102,7 @@ public class BattleField implements Runnable{
                         } catch (InterruptedException e) {
                             e.printStackTrace();}
                     }
-
+                    this.setInMoveType1(false);
                     positions.clear();
                     Platform.runLater(() -> {
                         observer.inMoveVisual(this,gridPane,2, whichPawn);
@@ -111,6 +113,7 @@ public class BattleField implements Runnable{
                         } catch (InterruptedException e) {
                             e.printStackTrace();}
                     }
+
                     for (Vector2d i : positions){
                         this.pawnsOfP2.remove(whichPawn);
                         this.pawnsOfP2.put(i,new Pawn(true,i));
@@ -167,6 +170,7 @@ public class BattleField implements Runnable{
                         observer.setLabel("In move...");
                     });
                     this.addPosition(newPosition);
+                    this.setInMoveType1(true);
                     return true;
                 }
             }
@@ -186,7 +190,7 @@ public class BattleField implements Runnable{
             }
         }
 
-        else {
+        else if (!inMoveType1){
             for (int i = 0; i < 4; i++) {
                 if (pawnsOfP1.get(positions.get(positions.size()-1).add(intToMapDirection(i).toUnitVector())) != null
                         || pawnsOfP2.get(positions.get(positions.size()-1).add(intToMapDirection(i).toUnitVector())) != null) {
@@ -244,6 +248,10 @@ public class BattleField implements Runnable{
 
     public Map<Vector2d, Pawn> getPawnsOfP2() {
         return pawnsOfP2;
+    }
+
+    public void setInMoveType1(boolean x){
+        this.inMoveType1 = x;
     }
 
     public String checkIfSomeoneWon() {
